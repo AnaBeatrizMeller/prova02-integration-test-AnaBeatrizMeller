@@ -9,6 +9,7 @@ describe('Deck of cards', () => {
   let deckId = '';
 
   p.request.setDefaultTimeout(30000);
+  
 
   beforeAll(() => p.reporter.add(rep));
   afterAll(() => p.reporter.end());
