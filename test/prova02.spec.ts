@@ -12,10 +12,18 @@ describe('RESTful-API', () => {
     afterAll(() => p.reporter.end());
 
     describe('Objects', () => {
-        it('Get all objects', async () => {
+            it('Create a new object', async () => {
+            p.reporter.add(rep);
             await p
             .spec()
-            .get(`${baseUrl}/objects`)
+            .post(`${baseUrl}/objects`)
+            .withJson({
+                name: 'Iphone 13',
+                data: {
+                    year: 2021,
+                    price: 3000,
+                }
+            })
             .expectStatus(StatusCodes.OK)
             .inspect()
         });
